@@ -1,0 +1,57 @@
+In this program, we siimulate soft-disk particles governed by a Lennard-Jones
+potential. The particle simulation is visualized in a video and palyed after
+the run.
+Dependencies on this program include vlc for video viewing.
+This can be installed with the following command
+
+sudo apt install VLC
+
+In addition, for the compilation of images, ffmpeg will be needed.
+This program can be installed with 
+
+sudo apt install ffmpeg
+
+R scripts used to plot the particle coordinates weill be run from the 
+command line. As such, the Rscript program will be needed.
+One can try the following command to make sure it is recognized in the
+PATH env variable:
+
+sudo apt-get install r-base-core
+
+Any modifications to the program will require any C compiler such as gcc for
+re-compilation.
+
+This program is meant to be run in Unix-like OS such as the GNU/Linux OS or the
+Mac OS.
+
+
+To run this program, it is recommended to run the bash script
+
+new_run.bash
+
+The script zu_run_system.bash will not clean the previous run. The script
+zt_clean.bash will clean any runs (this entail removing all videos and image
+files).
+
+Giving this script the argument 1 will skip the main C program from being
+compiled.
+
+The paramers for this program are found in the file parameters.txt. These are
+encouraged to be experimented by the user.
+The parameters are read newline separated.
+The meaning of each parameter can be understood from the GetNameList.c source
+file.
+Th parameters meanings in the parameters.txt file are as follows:
+timestep size
+-density of particles system
+-number of cells in the x-direction
+-number of cells in the y-direction
+-number of cells in the z-direction
+-number of steps for averaging macro quantities such as pressure
+-number of steps for equilibrating the system (this entails making the total
+momentum equal to zero).
+Total number of steps (this governs the length of the simulation).
+Temperature (this indicates the avg speed of the particles and is conserved).
+
+After executing new_run.bash, the program will output the video using the
+program vlc.
